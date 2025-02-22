@@ -1,0 +1,3 @@
+interface ISuccess{
+    total:number;
+}
