@@ -1,5 +1,5 @@
 import {FormErrors,IAppState,IOrder,IOrderForm,IProductItem,} from '../types';
-import { Model } from './base/Model'
+import { Model } from './base/model'
 export class AppData extends Model<IAppState> {
 	catalog: Product[] = [];
 	preview: string = '';
