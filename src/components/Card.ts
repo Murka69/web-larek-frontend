@@ -1,6 +1,6 @@
 import { ensureElement } from "../utils/utils";
-import { Component } from "./component";
-
+import { Component } from "./base/component";
+import { categories } from "../utils/constants";
 
 interface ICardActions {
   onClick: (event: MouseEvent) => void;
@@ -19,13 +19,6 @@ export class Card<T> extends Component<ICard> {
   protected _category: HTMLElement;
   protected _image: HTMLImageElement;
   protected _price: HTMLElement;
-  protected _categoryColor = <Record<string, string>> {
-    "софт-скил": "soft",
-    "другое": "other",
-    "дополнительное": "additional",
-    "кнопка": "button",
-    "хард-скил": "hard"
-  }
 
   constructor(container: HTMLElement, actions?: ICardActions) {
     super(container);
@@ -46,7 +39,8 @@ export class Card<T> extends Component<ICard> {
 
   set category(value: string) {
     this.setText(this._category, value);
-    this._category.className = `card__category card__category_${this._categoryColor[value]}`
+    const categoryClass = categories.get(value); 
+    this._category.className = `card__category card__category_${categoryClass}`;
   }
 
   set image(value: string) {

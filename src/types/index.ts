@@ -12,7 +12,7 @@ export interface IAppState {
 	preview: string;
 	basket: string[];
 	order: IOrder;
-	total: string | number;
+	total:number;
 	loading: boolean;
 }
 
@@ -25,16 +25,17 @@ export interface IOrderForm {
 	address?: string;
 	phone?: string;
 	email?: string;
-	total?: string | number;
 }
 
 export interface IOrder extends IOrderForm {
 	items: string[];
+	total?: number;
 }
 
-export type FormErrors = Partial<Record<keyof IOrder, string>>;
+export type FormErrors = Partial<Record<keyof IOrderForm, string>>;
 
 export interface IOrderResult {
+	total: number;
 	id: string;
 }
 

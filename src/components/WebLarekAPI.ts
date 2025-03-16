@@ -9,14 +9,22 @@ export class WebLarekApi extends Api {
     this.cdn = cdn;
   }
   getProductList() {
-    return this.get('/product')
-      .then((data: ApiListResponse<IProductItem>) => {
-        return data.items.map((item) => ({ ...item }))
-      })
+    return this.get('/product').then((data: ApiListResponse<IProductItem>) =>
+      data.items.map(item => ({...item,imageUrl: `${this.cdn}/${item.image}`}))
+    );
   }
   orderProducts(order: IOrder): Promise<IOrderResult> {
     return this.post('/order', order).then(
         (data: IOrderResult) => data
     );
+  }
+  prepareCardData(item: IProductItem) {
+    return {
+      title: item.title,
+      category: item.category,
+      image: this.cdn + item.image,
+      price: item.price,
+      text:item.description,
+    };
   }
 }

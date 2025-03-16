@@ -1,6 +1,6 @@
-import { ensureElement } from "../utils/utils";
-import { Component } from "./component";
-import { IEvents } from "./base/events";
+import { ensureElement } from "../../utils/utils";
+import { Component } from "../base/component";
+import { IEvents } from "../base/events";
 
 interface IModalData {
   content: HTMLElement;

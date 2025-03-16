@@ -1,5 +1,5 @@
 import {FormErrors,IAppState,IOrder,IOrderForm,IProductItem,} from '../types';
-import { Model } from './component';
+import { Model } from './base/Model'
 export class AppData extends Model<IAppState> {
 	catalog: Product[] = [];
 	preview: string = '';
@@ -74,6 +74,9 @@ export class AppData extends Model<IAppState> {
 		this.order[field] = value;
 		this.validateAndEmit(this.validateContacts);
 	}
+	isItemInBasket(item: Product): boolean {
+        return this.basket.some((basketItem) => basketItem.id === item.id);
+    }
 
 	private validateAndEmit(validateFn: () => boolean) {
 		if (validateFn.call(this)) {

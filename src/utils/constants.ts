@@ -5,3 +5,10 @@ export const settings = {
 
 };
 
+export const categories = new Map([
+    ['софт-скил', 'soft'],
+    ['другое', 'other'],
+    ['дополнительное', 'additional'],
+    ['кнопка', 'button'],
+    ['хард-скил', 'hard']
+  ]);
