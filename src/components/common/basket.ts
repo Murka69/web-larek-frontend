@@ -44,10 +44,10 @@ export class Basket extends Component<IBasket> {
 		this.setText(this._total, `${total} синапсов`);
 	}
 
-	setBuyButtonDisabled(itemId: string, isDisabled: boolean) {
+	setBuyButtonDisabled(itemId: string, isDisabled: boolean, price: number) {
 		const buyButton = document.getElementById(`buy-button-${itemId}`) as HTMLButtonElement;
 		if (buyButton) {
-			buyButton.disabled = isDisabled;
+			buyButton.disabled = isDisabled || price <= 0;
 		}
 	}
 }

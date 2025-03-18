@@ -110,7 +110,7 @@ export class CardBasket extends Component<ICardBasket> {
   }
 
   set index(value: number) {
-    this.setText(this._index, value);
+    this._index.textContent = (value + 1).toString();
   }
 
   set title(value: string) {

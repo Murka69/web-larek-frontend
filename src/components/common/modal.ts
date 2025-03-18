@@ -20,6 +20,7 @@ export class Modal extends Component<IModalData> {
     this.container.addEventListener('click', this.close.bind(this));
     this._content.addEventListener('click', (event) => event.stopPropagation());
   }
+  
 
   set content(value: HTMLElement) {
     this._content.replaceChildren(value);
@@ -35,6 +36,7 @@ export class Modal extends Component<IModalData> {
       this.content = null;
       this.events.emit('modal:close');
   }
+  
 
   render(data: IModalData): HTMLElement {
       super.render(data);
